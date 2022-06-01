@@ -3,10 +3,14 @@ I have used sha256 algorithm along with pre-implemented library hashlib for hash
 Trialed outputs:
 <br />
 iitk
+<br />
 Nonce: 1217060
+<br />
 Execution Time: 2.2411346435546875e-05
 <br />
 Harsh
+<br />
 Nonce: 167577
+<br />
 Execution Time: 2.2411346435546875e-05
 
