@@ -1,7 +1,7 @@
 I have used sha256 algorithm along with pre-implemented library hashlib for hashing. I utilised the time library to keep track of time.
 <br />
 <br />
-###Trialed outputs:
+### Trialed outputs:
 <br />
 <br />
 iitk
