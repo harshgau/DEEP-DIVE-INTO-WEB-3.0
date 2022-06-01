@@ -3,15 +3,14 @@ I have used sha256 algorithm along with pre-implemented library hashlib for hash
 <br />
 ### Trialed outputs:
 <br />
-<br />
-iitk
+👉iitk
 <br />
 Nonce: 1217060
 <br />
 Execution Time: 2.2411346435546875e-05
 <br />
 <br />
-Harsh
+👉Harsh
 <br />
 Nonce: 167577
 <br />
