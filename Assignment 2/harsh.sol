@@ -10,17 +10,17 @@ contract MetaCoin {
 		balances[tx.origin] = 100000;
 	}
 
-	function sendCoin(address rec, uint256 amount, address sender) public returns(bool sufficient) {
-		if (balances[sender] < amount) return false;
-		balances[sender] -= amount;
-		balances[receiver] += amount;
-		emit Transfer(sender, receiver, amount);
+	function sendCoin(address rec, uint256 amt, address send) public returns(bool sufficient) {
+		if (balances[send] < amt) return false;
+		balances[send] -= amt;
+		balances[rec] += amt;
+		emit Transfer(send, rec, amt);
 		return true;
 	}
 
 
-	function getBalance(address addr) public view returns(uint256) {
-		return balances[addr];
+	function getBalance(address addrs) public view returns(uint256) {
+		return balances[addrs];
 	}
 }
 
@@ -55,23 +55,24 @@ contract Loan is MetaCoin {
         }
     }
     }
-    function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
-    return principle * pow (1 + rate, time);        
-    }
-    
+   
     function reqLoan(uint256 principle, uint rate, uint time) public returns(bool correct) {
-        uint256 toPay = getCompoundInterest(principle, rate, time);
+        uint256 Pay = getCompoundInterest(principle, rate, time);
 
-        loans[msg.sender]=toPay;
-        if(toPay>=principle)
+        loans[msg.sender]=Pay;
+        if(Pay>=principle)
         {
-            emit Request(msg.sender, principle, rate, time, toPay);
+            emit Request(msg.sender, principle, rate, time, Pay);
             return true;
         }
               
         return false;
 
     }
+     function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
+    return principle * pow (1 + rate, time);        
+    }
+    
     
     function getOwnerBalance() public view returns(uint256) {
         return getBalance(Owner);
