@@ -55,7 +55,10 @@ contract Loan is MetaCoin {
         }
     }
     }
-   
+    function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
+    return principle * pow (1 + rate, time);        
+    }
+    
     function reqLoan(uint256 principle, uint rate, uint time) public returns(bool correct) {
         uint256 toPay = getCompoundInterest(principle, rate, time);
 
@@ -68,9 +71,6 @@ contract Loan is MetaCoin {
               
         return false;
 
-    }
-     function getCompoundInterest(uint256 principle, uint rate, uint time) public pure returns(uint256) {
-    return principle * pow (1 + rate, time);        
     }
     
     function getOwnerBalance() public view returns(uint256) {
